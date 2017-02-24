@@ -1,0 +1,29 @@
+<center>
+<h1> List of All Users </h1>
+</center>
+
+<div class="row">
+	<div class="col col-md-8">
+		<table class="table table-triped">
+			<thead class="thead thead-default">
+				<tr>
+					<th> Name </th>
+					<th> Email </th>
+					<th> Status </th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @users.each do |user| %>
+				<tr class="table-success" >
+					<td><%= user.name %></td>
+					<td><%= user.email %></td>
+					<td><%= link_to "Add As Friend", new_friend_path(user: user.id) %> </td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class="col col-md-4">
+
+	</div>
+</div>

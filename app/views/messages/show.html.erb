@@ -1,0 +1,8 @@
+<center>
+<h1> Message from <%= @message.sender.name %> </h1>
+</center>
+<% if @message.read_times == 1 %>
+	<td><%= @message.body %></td>
+<% else %>
+	<h6>The message has already been read. You only read once </h6>
+<% end %>

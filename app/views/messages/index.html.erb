@@ -1,0 +1,44 @@
+<center>
+<h1> Inbox </h1>
+</center>
+
+<% if @messages.empty? %>
+	<div class="alert alert-danger"> You have no message. </div>
+<% end %>
+<div class="row">
+<div class="col col-md-9">
+<table class="table table-triped">
+	<thead class="thead thead-default">
+		<tr>
+			<th> Sender </th>
+			<th> Subject </th>
+			<th> Received time </th>
+			<th> Read time </th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @messages.each do |message| %>
+			<% if message.read_at == nil %>		
+			<tr class="table-info">
+				<td><%= link_to message.sender, message_path(:id => message.id) %></td>
+				<td><%= message.subject %></td>
+				<td><%= message.created_at %></td>
+				<td> Unread </td>
+			</tr>
+			<% else %>
+			<tr> 
+				<td><%= link_to message.sender, message_path(:id => message.id) %></td>
+				<td><%= message.subject %></td>
+				<td><%= message.created_at %></td>
+				<td><%= message.read_at %></td>
+			</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
+</div>
+<div class="col col-md-3">
+	<%= link_to "New message", new_message_path, class: 'btn btn-secondary' %><br>
+	<%= link_to "Sent messages", sent_index_path, class: 'btn btn-secondary' %>
+</div>
+</div>

@@ -1,0 +1,42 @@
+<center>
+	<h1> Sent Messages </h1>
+</center>
+
+<% if @messages.empty? %>
+	<div class="alert alert-danger"> You have no message. </div>
+<% end %>
+<div class="row">
+<div class="col col-md-9">
+<table class="table table-triped">
+	<thead class="thead thead-default">
+		<tr>
+			<th> Sent to </th>
+			<th> Subject </th>
+			<th> Sent_time </th>
+			<th> Read time </th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @messages.each do |message| %>
+			<% if message.read_at == nil %>		
+			<tr class="table-info">
+				<td><%= message.recipient %></td>
+				<td><%= message.subject %></td>
+				<td><%= message.created_at %></td>
+				<td> Unread </td>
+			</tr>
+			<% else %>
+			<tr> 
+				<td><%= message.recipient %></td>
+				<td><%= message.subject %></td>
+				<td><%= message.created_at %></td>
+				<td><%= message.read_at %></td>
+			</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
+</div>
+<div class="col col-md-3">
+</div>
+</div>

@@ -1,0 +1,30 @@
+<center>
+<h1> Friend List </h1>
+</center>
+
+<% if @friends.empty? %>
+	<div class="alert alert-danger"> You have no friend. </div>
+<% end %>
+<div class="row">
+	<div class="col col-md-9">
+		<table class="table table-triped">
+			<thead class="thead thead-default">
+				<tr>
+					<th> Name </th>
+					<th> Email </th>
+					<th> Added at </th>
+					<th> Option </th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @friends.each do |friend| %>
+				<tr>
+				<td><%= friend.friend.name %></td>
+				<td><%= friend.friend.email %></td>
+				<td><%= friend.friend.created_at %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
