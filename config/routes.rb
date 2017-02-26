@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#index'  
   resources :blocks
   resources :friends
   resources :messages
@@ -9,5 +10,4 @@ Rails.application.routes.draw do
   delete 'unfriend' => 'friends#destroy'
   delete 'block' => 'blocks#destroy'
 
-	root 'home#index'  
 end
