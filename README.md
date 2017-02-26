@@ -44,7 +44,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![record.gif](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
+![record-gif](record.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
