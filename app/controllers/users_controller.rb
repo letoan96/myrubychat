@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
 	def index
-		@users=User.where.not(id: current_user.id)
+		@users=User.where.not(:id => current_user.id)
+		@friend=current_user.friends
+		@friend.each do |friend|
+			@b= User.where(:id => friend.friend.id) 
+			@users = @users - @b
+		end
+		@blocked_users = current_user.blocked_users_block
+		@blocked_users.each do |block|
+			@b= User.where(:id => block.blocked_user.id) 
+			@users = @users - @b
+		end
 	end
-
-
 
 	def new
 		@user = User.new(email: params[:email], name: params[:name])
@@ -20,6 +28,13 @@ class UsersController < ApplicationController
 		end
 		
 	end
+
+	def edit
+		@user=User.find(current_user.id)
+		#@user.avatar_url = params[:avatar_url]
+		#@user.save
+	end
+
 
 	private
 

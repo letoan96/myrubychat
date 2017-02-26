@@ -2,6 +2,6 @@
 <h1> Add friend </h1>
 </center>
 
-<p>Do you want to sent <b><%= @friend.name %></b> a message? </p>
-<%= link_to "Yes", users_path ,class: 'btn btn-primary' %>
-<%= link_to "No", users_path ,class: 'btn btn-warning' %>
+<p>Do you want to add <b><%= @friend.name %></b> as your friend </p>
+<%= link_to "Yes", new_friend_path(:user => @friend.id ,:confirm => 'yes') ,class: 'btn btn-primary' %>
+<%= link_to "No", new_friend_path(:user => @friend.id ,:confirm => 'no') ,class: 'btn btn-warning' %>

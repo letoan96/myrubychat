@@ -3,27 +3,41 @@
 </center>
 
 <div class="row">
-	<div class="col col-md-8">
+	<div class="col col-md-10">
 		<table class="table table-triped">
-			<thead class="thead thead-default">
+			<thead class="thead bg-success ">
 				<tr>
 					<th> Name </th>
 					<th> Email </th>
-					<th> Status </th>
+					<th> Status / Options </th>
 				</tr>
 			</thead>
 			<tbody>
 			<% @users.each do |user| %>
-				<tr class="table-success" >
+				<tr class="table-info" >
 					<td><%= user.name %></td>
 					<td><%= user.email %></td>
-					<td><%= link_to "Add As Friend", new_friend_path(user: user.id) %> </td>
+					<td><%= link_to "Add As Friend", new_friend_path(user: user.id)%> |
+					<%= link_to "Block user", new_block_path(user: user.id) %> </td>
 				</tr>
 				<% end %>
+			<% @friend.each do |friend| %>	
+				<tr class="table-success" >
+					<td><%= friend.friend.name %></td>
+					<td><%= friend.friend.email %></td>
+					<td><%= 'Friend' %></td>
+				</tr>
+			<% end %>
+			<% @blocked_users.each do |block| %>	
+				<tr class="table-danger" >
+					<td><%= block.blocked_user.name %></td>
+					<td><%= block.blocked_user.email %></td>
+					<td><%= 'Blocked' %></td>
+				</tr>
+			<% end %>
 			</tbody>
 		</table>
 	</div>
-	<div class="col col-md-4">
-
+	<div class="col col-md-2">
 	</div>
 </div>

@@ -11,28 +11,26 @@
 	<div class="card-block" >
 
 		<div class="form-inline">	
-			<h5 style='margin-right: 20px;''> To: </h5>
-			<div class="dropdown">
+			<b style='margin-right: 20px;'> To: </b>
+			<% if @name %>
+			<b class="text-primary"><%= @name.to_sentence %></b>
+			<% end %>
+		</div>
+
+
+		<%= form_for @message do |f| %>
+
+		<div class="dropdown">
 				<a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<% if @recipient %>
-					<td><%= @recipient.name %></td>
-					<% else %>
-					Select
-					<% end %>
+					Add recipient
 				</a>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-					<% @friends.each do |friend| %>
-					<%= link_to friend.friend.name, new_message_path(:recipient_id => friend.friend.id), class: "dropdown-item" %>
+					<% @a.each do |friend| %>
+					<%= link_to friend.name, new_message_path(:recipient_id => friend.id), class: "dropdown-item" %>
 					<% end %>
 				</div>
 			</div>
-		</div>
 
-		<%= form_for @message do |f| %>
-		<div class="form-group">
-			<%= f.label :recipient %>
-			<%= f.text_field  :recipient_id, class: 'form-control'  %>
-		</div>
 		<div class="form-group">
 			<%= f.label :subject  %>
 			<%= f.text_field :subject, class: 'form-control'  %>
@@ -46,13 +44,6 @@
 			<%= f.submit 'Send', class: 'btn btn-primary'  %>
 		</div>
 		<% end %>
-
-
-
-
-
-
-
 
 	</div>
 </div>

@@ -8,7 +8,7 @@
 <div class="row">
 	<div class="col col-md-9">
 		<table class="table table-triped">
-			<thead class="thead thead-default">
+			<thead class="thead bg-success">
 				<tr>
 					<th> Name </th>
 					<th> Email </th>
@@ -18,10 +18,11 @@
 			</thead>
 			<tbody>
 			<% @friends.each do |friend| %>
-				<tr>
+				<tr class='table-success'>
 				<td><%= friend.friend.name %></td>
 				<td><%= friend.friend.email %></td>
 				<td><%= friend.friend.created_at %></td>
+				<td><%= link_to "Unfriend", unfriend_path(:id => friend.id), method: :delete, data: { confirm: "Are you certain you want to unfriend #{friend.friend.name} ?"  } %> </td>
 				</tr>
 			<% end %>
 			</tbody>

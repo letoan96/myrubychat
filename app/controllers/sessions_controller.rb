@@ -25,3 +25,11 @@ class SessionsController < ApplicationController
   	redirect_to root_path, flash: {alert: "Logged out!!!"} 	
   end
 end
+
+
+
+#<% if @recipient %>
+ #         <td><%= @recipient.name %></td>
+  #        <% else %>
+   #       Select
+    #      <% end %>

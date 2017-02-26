@@ -1,0 +1,31 @@
+<center>
+<h1> Black List </h1>
+</center>
+
+<% if @blocked_users.empty? %>
+	<div class="alert alert-danger"> You have no user in black list. </div>
+<% end %>
+<div class="row">
+	<div class="col col-md-9">
+		<table class="table table-triped">
+			<thead class="thead bg-success">
+				<tr>
+					<th> Name </th>
+					<th> Email </th>
+					<th> Added at </th>
+					<th> Option </th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @blocked_users.each do |f| %>
+				<tr class="table-danger">
+				<td><%= f.blocked_user.name %></td>
+				<td><%= f.blocked_user.email %></td>
+				<td><%= f.blocked_user.created_at %></td>
+				<td><%= link_to "Unblock", block_path(:id => f.id), method: :delete, data: { confirm: "Are you certain you want to unfriend #{f.blocked_user.name} ?"  } %> </td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

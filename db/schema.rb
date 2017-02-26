@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224094219) do
+ActiveRecord::Schema.define(version: 20170226060413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blocks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "blocked_user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "friends", force: :cascade do |t|
     t.integer  "user_id"
@@ -40,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170224094219) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "avatar_url"
     t.index ["email"], name: "index_users_on_email", using: :btree
   end
 
