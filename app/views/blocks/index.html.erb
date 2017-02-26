@@ -22,7 +22,7 @@
 				<td><%= f.blocked_user.name %></td>
 				<td><%= f.blocked_user.email %></td>
 				<td><%= f.blocked_user.created_at %></td>
-				<td><%= link_to "Unblock", block_path(:id => f.id), method: :delete, data: { confirm: "Are you certain you want to unfriend #{f.blocked_user.name} ?"  } %> </td>
+				<td><%= link_to "Unblock", unblock_path(:id => f.id), data: { confirm: "Are you certain you want to unfriend #{f.blocked_user.name} ?"  } %> </td>
 				</tr>
 			<% end %>
 			</tbody>
