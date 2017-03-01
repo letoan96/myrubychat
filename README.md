@@ -4,9 +4,9 @@
 
 Submitted by: **Le Tran The Toan**
 
-Time spent: **X** hours
+Time spent: **14** hours
 
-URL: **Insert your Heroku URL here**
+URL: **https://myrubychat.herokuapp.com/**
 
 ## User Stories
 
